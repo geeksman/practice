@@ -60,7 +60,7 @@ function horizontalSort($matrix)
 				$matrix[$j / $columns][$j % $columns] = $matrix[($j + 1) / $columns][($j + 1) % $columns];
 				$matrix[($j + 1) / $columns][($j + 1) % $columns] = $swap;
 			}
-        }
+		}
 	}
 	return $matrix;
 }
@@ -77,8 +77,8 @@ function ascendingVerticaleSort($matrix)
 			if ($matrix[$j % $rows][$j / $rows] > $matrix[($j + 1) % $rows][($j + 1) / $rows]) 
 			{
 				$swap = $matrix[$j % $rows][$j / $rows];
-                $matrix[$j % $rows][$j / $rows] = $matrix[($j + 1) % $rows][($j + 1) / $rows];
-                $matrix[($j + 1) % $rows][($j + 1) / $rows] = $swap;
+				$matrix[$j % $rows][$j / $rows] = $matrix[($j + 1) % $rows][($j + 1) / $rows];
+				$matrix[($j + 1) % $rows][($j + 1) / $rows] = $swap;
 			}
 	}
 	return $matrix;
