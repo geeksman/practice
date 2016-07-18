@@ -56,10 +56,10 @@ function horizontalSort($matrix)
 		{
 			if ($matrix[$j / $columns][$j % $columns] > $matrix[($j + 1) / $columns][($j + 1) % $columns]) 
 			{
-                $swap = $matrix[$j / $columns][$j % $columns];
-                $matrix[$j / $columns][$j % $columns] = $matrix[($j + 1) / $columns][($j + 1) % $columns];
-                $matrix[($j + 1) / $columns][($j + 1) % $columns] = $swap;
-            }
+	            $swap = $matrix[$j / $columns][$j % $columns];
+	            $matrix[$j / $columns][$j % $columns] = $matrix[($j + 1) / $columns][($j + 1) % $columns];
+	            $matrix[($j + 1) / $columns][($j + 1) % $columns] = $swap;
+	        }
         }
 	}
 	return $matrix;
