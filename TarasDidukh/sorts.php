@@ -80,6 +80,7 @@ function ascendingVerticaleSort($matrix)
 				$matrix[$j % $rows][$j / $rows] = $matrix[($j + 1) % $rows][($j + 1) / $rows];
 				$matrix[($j + 1) % $rows][($j + 1) / $rows] = $swap;
 			}
+		}
 	}
 	return $matrix;
 }
