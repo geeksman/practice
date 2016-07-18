@@ -52,7 +52,8 @@ function horizontalSort($matrix)
 	$length = $rows * $columns;
 	for ($i = 0; $i < $length - 1; ++$i) 
 	{
-		for ($j = 0; $j < $length - 1; ++$j) {
+		for ($j = 0; $j < $length - 1; ++$j) 
+		{
 			if ($matrix[$j / $columns][$j % $columns] > $matrix[($j + 1) / $columns][($j + 1) % $columns]) 
 			{
                 $swap = $matrix[$j / $columns][$j % $columns];
