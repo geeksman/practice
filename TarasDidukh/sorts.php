@@ -7,7 +7,12 @@ $values = array(
 	array(10,7,9,8,6),
 	array(3,15,12,14,13),
 	array(19,20,17,2,16)
-	);
+);
+// $values = array(
+// 	array(5,11,18),
+// 	array(10,7,9),
+// 	array(3,15,12)
+// );
 
 echo 'Sart array:<br>';
 echo printArray($values);
@@ -20,6 +25,14 @@ $sorted2 = ascendingVerticaleSort($values);
 echo '<br>Sorted-2 array:<br>';
 echo printArray($sorted2);
 
+$sorted4 = ascendingSnailSort($values);
+echo '<br>Sorted-4 array:<br>';
+echo printArray($sorted4);
+
+$sorted5 = descendingSnailSort($values);
+echo '<br>Sorted-5 array:<br>';
+echo printArray($sorted5);
+
 $sorted3 = descendingVerticalSort($values);
 echo '<br>Sorted-3 array:<br>';
 echo printArray($sorted3);
@@ -31,7 +44,6 @@ echo printArray($sorted7);
 $sorted6 = diagonalSort($values);
 echo '<br>Sorted-6 array:<br>';
 echo printArray($sorted6);
-
 
 function printArray($matrix) 
 {
@@ -85,7 +97,8 @@ function ascendingVerticaleSort($matrix)
 	return $matrix;
 }
 
-function descendingVerticalSort($matrix) {
+function descendingVerticalSort($matrix) 
+{
 	$columns = count($matrix[0]);
 	$rows = count($matrix);
 	$length = $rows * $columns;
@@ -104,7 +117,8 @@ function descendingVerticalSort($matrix) {
 	return $matrix;
 }
 
-function snakeSort($matrix) {
+function snakeSort($matrix) 
+{
 	$matrix = horizontalSort($matrix);
 	$columns = count($matrix[0]);
 	$rows = count($matrix);
@@ -120,12 +134,8 @@ function snakeSort($matrix) {
 	return $matrix;
 }	
 
-/**
- * Сортування з костилями, але працює)))
- * @param  [type] $matrix [description]
- * @return [type]         [description]
- */
-function diagonalSort($matrix) {
+function diagonalSort($matrix) 
+{
 	$arr = array();
 	$columns = count($matrix[0]);
 	$rows = count($matrix);
@@ -154,12 +164,124 @@ function diagonalSort($matrix) {
 		{
 			$flag++;
 		}
-		if ($flag >= 2)
-		{
+		if ($flag >= 2) {
 			$k++;
 			$i = $rows - 1;
 			$j += $k;
 		}
+	}
+	return $matrix;
+}
+
+function ascendingSnailSort($matrix) 
+{
+	$arr = array();
+	$columns = count($matrix[0]);
+	$rows = count($matrix);
+	$length = $rows * $columns;
+
+	for ($i = 0; $i < $length; ++$i) {
+		$arr[$i] = $matrix[$i / $columns][$i % $columns];
+	}
+	sort($arr);
+
+	$k = 0;
+	for ($c = 0; $c < $columns; ++$c) {
+		$matrix[0][$c] = $arr[$k++];
+	}
+
+	$direction = 1;
+	$i = 0; 
+	$j = $columns - 1;
+	$iStop = $rows - 1;
+	$jStop = $columns - 1;
+	$h = 0;
+
+	while ($k < $columns * $rows) {
+		switch ($direction) {
+			case 1: //down
+				for (; $h < $iStop; $h++) {
+					$matrix[++$i][$j] = $arr[$k++];
+				}
+				$iStop--;
+				break;
+			case 2: // left
+				for (; $h < $jStop; $h++) {
+					$matrix[$i][--$j] = $arr[$k++];
+				}
+				$jStop--;
+				break;
+			case 3: // up
+				for (; $h < $iStop; $h++) {
+					$matrix[--$i][$j] = $arr[$k++];
+				}
+				$iStop--;
+				break;
+			case 4: // right
+				for (; $h < $jStop; $h++) {
+					$matrix[$i][++$j] = $arr[$k++];
+				}
+				$jStop--;
+				break;
+		}
+		$direction = $direction % 4 + 1;
+		$h = 0;
+	}
+	return $matrix;
+}
+
+function descendingSnailSort($matrix) {
+	$arr = array();
+	$columns = count($matrix[0]);
+	$rows = count($matrix);
+	$length = $rows * $columns;
+
+	for ($i = 0; $i < $length; ++$i) {
+		$arr[$i] = $matrix[$i / $columns][$i % $columns];
+	}
+	sort($arr);
+
+	$k = count($arr) - 1;
+	for ($c = 0; $c < $columns; ++$c) {
+		$matrix[0][$c] = $arr[$k--];
+	}
+
+	$direction = 1;
+	$i = 0; 
+	$j = $columns - 1;
+	$iStop = $rows - 1;
+	$jStop = $columns - 1;
+	$h = 0;
+
+	while ($k >= 0) {
+		switch ($direction) {
+			case 1: //down
+				for (; $h < $iStop; $h++) {
+					$matrix[++$i][$j] = $arr[$k--];
+				}
+				$iStop--;
+				break;
+			case 2: // left
+				for (; $h < $jStop; $h++) {
+					$matrix[$i][--$j] = $arr[$k--];
+				}
+				$jStop--;
+				break;
+			case 3: // up
+				for (; $h < $iStop; $h++) {
+					$matrix[--$i][$j] = $arr[$k--];
+				}
+				$iStop--;
+				break;
+			case 4: // right
+				for (; $h < $jStop; $h++) {
+					$matrix[$i][++$j] = $arr[$k--];
+				}
+				$jStop--;
+				break;
+		}
+		$direction = $direction % 4 + 1;
+		$h = 0;
 	}
 	return $matrix;
 }
