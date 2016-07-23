@@ -1,10 +1,39 @@
-#printMatrix {
+.printMatrix {
     border: 1px solid black;
     text-align: right;
+    margin: 30px 0 0 30px;
 }
 
-#printMatrix td{
+.printMatrix td {
     padding: 5px
 }
+
+form {
+    border: 1px solid blue;
+    padding: 10px;
+    border-radius: 10px;
+    width: 40%;
+    position: relative;
+    float: left;
+    margin-right: 30px;
+}
+
+form h1 {
+    text-align: center;
+    margin: 0 0 20px 0;   
+}
+
+.generation {
+    position: absolute;
+    top: 65px;
+    right: 80px;
+}
+
+.mainForm {
+    width: 350px;
+}
+
+
+
 
 

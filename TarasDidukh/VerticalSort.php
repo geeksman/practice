@@ -1,6 +1,6 @@
 <?php 
 
-require('BaseMatrix.php');
+require_once('BaseMatrix.php');
     
 class VerticalSort extends BaseMatrix 
 {

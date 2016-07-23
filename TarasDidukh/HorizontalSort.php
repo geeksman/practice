@@ -1,6 +1,6 @@
 <?php
 
-require('BaseMatrix.php');
+require_once('BaseMatrix.php');
 
 class HorizontalSort extends BaseMatrix
 {

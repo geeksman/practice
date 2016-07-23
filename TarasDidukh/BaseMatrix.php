@@ -28,7 +28,19 @@ abstract class BaseMatrix {
         }
         return true;
     }
+    
+    public function setMatrix($matrix)
+    {
+        $this->matrix = $matrix;
+        $this->rows = count($matrix);
+        $this->columns = count($matrix[0]);
+    }
 
+    public function getMatrix()
+    {
+        return $this->matrix;
+    }
+    
     public function getRows() 
     {
         return $this->rows;
@@ -41,7 +53,7 @@ abstract class BaseMatrix {
     
     public function printMatrix()
     {
-        echo '<table id="printMatrix">';
+        echo '<table class="printMatrix">';
         
         for ($i = 0; $i < $this->rows; $i++) {
             echo '<tr>';
@@ -52,6 +64,19 @@ abstract class BaseMatrix {
        }
        
        echo '</table>';
+    }
+    
+    public function printMatrixToFile() 
+    {
+        $myfile = fopen("print-matrix.txt", "w") or die("Unable to open file!");
+        
+        for ($i = 0; $i < $this->rows; $i++) {
+            for ($j = 0; $j < $this->columns; $j++) {
+                fwrite($myfile, $this->matrix[$i][$j]);
+                fwrite($myfile, "   ");
+            }
+            fwrite($myfile, '\n');
+       }
     }
     
     public function generateRandom() 
