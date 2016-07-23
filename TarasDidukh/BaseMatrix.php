@@ -62,7 +62,7 @@ abstract class BaseMatrix
                 echo '<td>' . $this->matrix[$i][$j] . '</td>';
             }
             echo '</tr>';
-       }
+        }
        
        echo '</table>';
     }
@@ -77,7 +77,7 @@ abstract class BaseMatrix
                 fwrite($myfile, "   ");
             }
             fwrite($myfile, '\n');
-       }
+        }
     }
     
     public function generateRandom() 
