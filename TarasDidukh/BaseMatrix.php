@@ -1,6 +1,7 @@
 <?php
 
-abstract class BaseMatrix {
+abstract class BaseMatrix 
+{
     protected $matrix;
     protected $rows;
     protected $columns;
