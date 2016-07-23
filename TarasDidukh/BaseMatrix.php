@@ -76,7 +76,7 @@ abstract class BaseMatrix
                 fwrite($myfile, $this->matrix[$i][$j]);
                 fwrite($myfile, "   ");
             }
-            fwrite($myfile, '\n');
+            fwrite($myfile, "\r\n");
         }
     }
     
