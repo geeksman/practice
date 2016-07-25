@@ -1,0 +1,9 @@
+.printMatrix {
+    border: 1px solid black;
+    text-align: right;
+    margin: 30px 0 0 30px;
+}
+
+.printMatrix td {
+    padding: 5px
+}
