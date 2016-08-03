@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Sort Matrix</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style8.css">
+    </head>
+    <body>
+        <div>
+            <form action="action.php" method="post">
+                <div>
+                    <label for="Rows">N = </label>
+                    <select size="1" name="N" id="Rows" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5" selected>5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <label for="Columns">M = </label>
+                    <select size="1" name="M" id="Columns" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5" selected>5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <label for="Gen">Генератор: </label>
+                    <select size="1" name="Generator" required id="Gen">
+                        <option value="Rand" selected>Рандом</option>
+                        <option value="Simple">Прості числа</option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <input type='radio' id='Horizontal' name='Sort' value="Hor">
+                    <label class="RB S1" for='Horizontal'></label>
+                    <input type='radio' id='Vertical' name='Sort' value="Vert">
+                    <label class="RB S2" for='Vertical'></label>
+                    <input type='radio' id='VerticalR' name='Sort' value="VertR">
+                    <label class="RB S3" for='VerticalR'></label>
+                    <input type='radio' id='SnakeSort' name='Sort' value="Snake">
+                    <label class="RB S4" for='SnakeSort'></label>                    
+                </div>
+                <br>
+                <input type="submit" value="Сортувати">
+            </form>
+        </div>
+    </body>
+</html>

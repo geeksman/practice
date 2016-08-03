@@ -1,0 +1,82 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25.07.2016, 16:03:56
+    Author     : Maks
+*/
+.RB {
+    display: inline-block;
+}
+div {
+    text-align: center;
+}
+body:not(#Foo) label
+  {padding:0}
+
+body:not(#Foo) input[type=radio]
+  {display:none;}
+
+body:not(#Foo) input[type=radio] + .S1
+  {
+      background: url(img/HorizontalSort.jpg) no-repeat 0px 0px;
+      display: inline-block;
+      width: 65px;
+      height: 65px;
+  }
+
+body:not(#Foo) input[type=radio]:checked + .S1
+  {
+      background: url(img/HorizontalSortActive.jpg) no-repeat 0px 0px;
+      width: 65px;
+      height: 65px;
+  }
+  
+body:not(#Foo) input[type=radio] + .S2
+  {
+      background: url(img/VerticalSort.jpg) no-repeat 0px 0px;
+      display: inline-block;
+      width: 65px;
+      height: 65px;
+  }
+
+body:not(#Foo) input[type=radio]:checked + .S2
+  {
+      background: url(img/VertSortActive.jpg) no-repeat 0px 0px;
+      width: 65px;
+      height: 65px;
+  }
+  
+body:not(#Foo) input[type=radio] + .S3
+  {
+      background: url(img/VertSortReverse.jpg) no-repeat 0px 0px;
+      display: inline-block;
+      width: 65px;
+      height: 65px;
+  }
+
+body:not(#Foo) input[type=radio]:checked + .S3
+  {
+      background: url(img/VertSortReverseActive.jpg) no-repeat 0px 0px;
+      width: 65px;
+      height: 65px;
+  }
+  
+body:not(#Foo) input[type=radio] + .S4
+  {
+      background: url(img/SnakeSort.jpg) no-repeat 0px 0px;
+      display: inline-block;
+      width: 65px;
+      height: 65px;
+  }
+
+body:not(#Foo) input[type=radio]:checked + .S4
+  {
+      background: url(img/SnakeSortActive.jpg) no-repeat 0px 0px;
+      width: 65px;
+      height: 65px;
+  }
+  
+
