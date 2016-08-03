@@ -1,8 +1,13 @@
 <?php
-    require_once 'BaseMatrixClass.php';
+    
+    namespace gksmn\app\sort;
+    use gksmn\app\sort\BaseMatrixClass;
+    use gksmn\app\output\OutPut;
 
     class SnailSort extends BaseMatrixClass
     {
+        use OutPut;
+        
         private $typeSort;
         
         public function __construct($row, $col, $type, $typeSort) 

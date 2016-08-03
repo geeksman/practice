@@ -94,12 +94,7 @@
     </div>
 <?php
 
-    require_once 'BaseMatrixClass.php';
-    require_once 'HorizonSort.php';
-    require_once 'DiagonalSort.php';
-    require_once 'SnackSort.php';
-    require_once 'SnailSort.php';
-    require_once 'VerticalSort.php';
+    require __DIR__ . "/../vendor/autoload.php";
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $typeSort = $_POST['TypeSort'];
@@ -107,38 +102,39 @@
         $m = $_POST['M'];
         $n = $_POST['N'];
         $check = $_POST['add'];
-
+    /*$obj = new gksmn\app\output\test();
+    $obj->sayhello()*/
         switch($typeSort) {
             case 1:
-                $Matrix = new DiagonalSort($m, $n, $typeNumber);
+                $Matrix = new gksmn\app\sort\DiagonalSort($m, $n, $typeNumber);
                 break;
             case 2:
-                $Matrix = new HorizonSort($m, $n, $typeNumber);
+                $Matrix = new gksmn\app\sort\HorizonSort($m, $n, $typeNumber);
                 break;
             case 3:
-                $Matrix = new SnackSort($m, $n, $typeNumber);
+                $Matrix = new gksmn\app\sort\SnackSort($m, $n, $typeNumber);
                 break;
             case 4:
-                $Matrix = new SnailSort($m, $n, $typeNumber, $typeSort);
+                $Matrix = new gksmn\app\sort\SnailSort($m, $n, $typeNumber, $typeSort);
                 break;
             case 5:
-                $Matrix = new SnailSort($m, $n, $typeNumber, $typeSort);
+                $Matrix = new gksmn\app\sort\SnailSort($m, $n, $typeNumber, $typeSort);
                 break;
             case 6:
-                $Matrix = new VerticalSort($m, $n, $typeNumber, $typeSort);
+                $Matrix = new gksmn\app\sort\VerticalSort($m, $n, $typeNumber, $typeSort);
                 break;
             case 7:
-                $Matrix = new VerticalSort($m, $n, $typeNumber, $typeSort);
+                $Matrix = new gksmn\app\sort\VerticalSort($m, $n, $typeNumber, $typeSort);
                 break;
         }
     }
     
-    $Matrix->printMatrix();
+    $Matrix->printMatrix($Matrix->a, $Matrix->row, $Matrix->col);
     $Matrix->sortMethod();
     echo '<br>';
-    $Matrix->printMatrix();
+    $Matrix->printMatrix($Matrix->a, $Matrix->row, $Matrix->col);
     if($check == 'on'){
-        $Matrix->addToFile();
+        $Matrix->addToFile($Matrix->a, $Matrix->row, $Matrix->col);
     }
 ?>
 </body>

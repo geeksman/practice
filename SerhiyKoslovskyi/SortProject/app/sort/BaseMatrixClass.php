@@ -1,4 +1,5 @@
 <?php
+namespace gksmn\app\sort;
 
 abstract class BaseMatrixClass 
 {
@@ -64,19 +65,18 @@ abstract class BaseMatrixClass
     
     abstract public function sortMethod();
     
-    public function printMatrix()
+    public function __set($property, $value)
     {
-        echo '<table class="printMatrix">';
+        if (property_exists($this, $property)) {
+            $this->$property = $value;
+	}
+    }
         
-        for ($i = 0; $i < $this->row; $i++) {
-            echo '<tr>';
-            for ($j = 0; $j < $this->col; $j++) {
-                echo '<td>' . $this->a[$i][$j] . '</td>';
-            }
-            echo '</tr>';
+    public function __get($property)
+    {
+        if (property_exists($this, $property)) {
+            return $this->$property;
         }
-       
-       echo '</table>';
     }
 
     protected function printVector($v)
@@ -100,17 +100,4 @@ abstract class BaseMatrixClass
         return $copy;
     }
     
-    public function addToFile() 
-    {
-        
-        $file = fopen("Matrix.txt", "w");
-        
-        for ($i = 0; $i < $this->row; $i++) {
-            for ($j = 0; $j < $this->col; $j++) {
-                fwrite($file, $this->a[$i][$j] . "   ");
-            }
-            fwrite($file, "\r\n");
-        }
-        fclose($file);
-    }
 }

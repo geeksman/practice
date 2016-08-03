@@ -1,9 +1,13 @@
 <?php
     
-    require_once 'BaseMatrixClass.php';
+    namespace gksmn\app\sort;
+    use gksmn\app\sort\BaseMatrixClass;
+    use gksmn\app\output\OutPut;
 
     class SnackSort extends BaseMatrixClass
     {
+        use OutPut;
+        
         public function __construct($row, $col, $type) 
         {
             parent::__construct($row, $col, $type);

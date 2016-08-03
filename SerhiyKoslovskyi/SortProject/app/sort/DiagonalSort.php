@@ -1,8 +1,13 @@
 <?php
-    require_once 'BaseMatrixClass.php';
 
-    class DiagonalSort extends BaseMatrixClass 
+    namespace gksmn\app\sort;
+    use gksmn\app\sort\BaseMatrixClass as BC;
+    use gksmn\app\output\OutPut;
+
+    class DiagonalSort extends BC 
     {
+       use OutPut; 
+       
         public function __construct($row, $col, $type) 
         {
             parent::__construct($row, $col, $type);

@@ -1,0 +1,19 @@
+{
+    "name": "geeksman/sortproject",
+    "description": "test task",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Serhiy Kozlovskyi",
+            "email": "serhiy96@outlook.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "gksmn\\": "" 
+        }
+    }
+}
