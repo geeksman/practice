@@ -1,0 +1,18 @@
+{
+    "name": "botanic/taras-didukh",
+    "description": "Practice",
+    "license": "MTI",
+    "authors": [
+        {
+            "name": "botanic",
+            "email": "botanichek2015@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+    	"psr-4": {
+    		"botan\\": ""
+    	}
+    }
+}

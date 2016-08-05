@@ -1,5 +1,7 @@
 <?php
 
+namespace botan\app\components;
+
 class GenerateMatrix
 {
     public function generateRandom($matrix)

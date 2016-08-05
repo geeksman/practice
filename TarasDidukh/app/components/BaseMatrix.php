@@ -1,5 +1,7 @@
 <?php
 
+namespace botan\app\components;
+
 abstract class BaseMatrix 
 {
     protected $matrix;

@@ -1,5 +1,7 @@
 <?php
 
+namespace botan\app\components;
+
 class PrintMatrix
 {
     public function printMatrix($matrix)

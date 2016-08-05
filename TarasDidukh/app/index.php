@@ -45,14 +45,8 @@
 
     <?php
     
-        require_once('sorts/HorizontalSort.php');
-        require_once('sorts/VerticalSort.php');
-        require_once('sorts/SnailSort.php');
-        require_once('sorts/DiagonalSort.php');
-        require_once('sorts/SnakeSort.php');
-        require_once('php/PrintMatrix.php');
-        require_once('php/GenerateMatrix.php');
-        
+     require __DIR__ . "/../vendor/autoload.php";
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         $typeSort = $_POST["typeSort"];

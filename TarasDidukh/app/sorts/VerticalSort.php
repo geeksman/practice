@@ -1,6 +1,7 @@
 <?php 
 
-require_once('php/BaseMatrix.php');
+namespace botan\app\sorts;
+require_once('../vendor/autoload.php');
     
 class VerticalSort extends BaseMatrix 
 {

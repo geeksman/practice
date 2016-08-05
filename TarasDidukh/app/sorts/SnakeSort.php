@@ -1,7 +1,7 @@
 <?php
 
-require_once('sorts/HorizontalSort.php');
-require_once('php/BaseMatrix.php');
+namespace botan\app\sorts;
+require_once('../vendor/autoload.php');
 
 class SnakeSort extends BaseMatrix 
 {
