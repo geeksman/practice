@@ -1,6 +1,6 @@
 <?php
 
-require_once('BaseMatrix.php');
+require_once('php/BaseMatrix.php');
 
 class SnailSort extends BaseMatrix
 {
@@ -70,7 +70,7 @@ class SnailSort extends BaseMatrix
         }
         sort($arr);
 
-        $k = count($this->arr) - 1;
+        $k = count($arr) - 1;
         for ($c = 0; $c < $this->columns; ++$c) {
             $this->matrix[0][$c] = $arr[$k--];
         }

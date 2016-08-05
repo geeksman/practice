@@ -1,7 +1,7 @@
 <?php
 
-require_once('HorizontalSort.php');
-require_once('BaseMatrix.php');
+require_once('sorts/HorizontalSort.php');
+require_once('php/BaseMatrix.php');
 
 class SnakeSort extends BaseMatrix 
 {

@@ -26,8 +26,6 @@
             <input type="number" name="columns" id="rating" min="1" max="10" step="1" required>
             <br><br>
 
-
-
             <label for="typeSort">Тип сортування:</label>
             <select name="typeSort">
                 <option value="horizontalSort">Горизонтальне</option>
@@ -47,16 +45,20 @@
 
     <?php
     
-        require_once('HorizontalSort.php');
-        require_once('VerticalSort.php');
-        require_once('SnailSort.php');
-        require_once('DiagonalSort.php');
-        require_once('SnakeSort.php');
+        require_once('sorts/HorizontalSort.php');
+        require_once('sorts/VerticalSort.php');
+        require_once('sorts/SnailSort.php');
+        require_once('sorts/DiagonalSort.php');
+        require_once('sorts/SnakeSort.php');
+        require_once('php/PrintMatrix.php');
+        require_once('php/GenerateMatrix.php');
         
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         $typeSort = $_POST["typeSort"];
         $Matrix = 0;
+        $printM = new PrintMatrix();
+        
         
         switch ($typeSort) {
             case 'horizontalSort':
@@ -84,11 +86,15 @@
         
         $Matrix->setSize($_POST["rows"], $_POST["columns"]);
         
+        $generate = new GenerateMatrix();
+        
         if ($_POST["typeGeneration"] == "random") {
-            $Matrix->generateRandom();
+            $generate->generateRandom($Matrix);
         } else {
-            $Matrix->generateSimpleNumbers();
+            $generate->generateSimpleNumbers($Matrix);
         }
+        
+        $printM->printMatrix($Matrix);
         
         if ($typeSort == "dSnailSort" || $typeSort == "dVerticalSort") {
             $Matrix->dsort();
@@ -96,12 +102,11 @@
             $Matrix->sort();
         }
         
-        $Matrix->printMatrix();
-        $Matrix->printMatrixToFile();
+        $printM->printMatrix($Matrix);
+        $printM->printMatrixToFile($Matrix);
     }
     
     ?>
-</body>
 </body>
 </html>
 
