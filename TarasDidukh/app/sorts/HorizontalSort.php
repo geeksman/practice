@@ -1,7 +1,8 @@
 <?php
 
 namespace botan\app\sorts;
-require_once('../vendor/autoload.php');
+
+use botan\app\sorts\BaseMatrix;
 
 class HorizontalSort extends BaseMatrix
 {
@@ -13,12 +14,14 @@ class HorizontalSort extends BaseMatrix
     public function sort() 
     {
         $length = $this->rows * $this->columns;
+        $col = $this->columns;
+        
         for ($i = 0; $i < $length - 1; ++$i) {
             for ($j = 0; $j < $length - 1; ++$j) {
-                if ($this->matrix[$j / $this->columns][$j % $this->columns] > $this->matrix[($j + 1) / $this->columns][($j + 1) % $this->columns]) {
-                    $swap = $this->matrix[$j / $this->columns][$j % $this->columns];
-                    $this->matrix[$j / $this->columns][$j % $this->columns] = $this->matrix[($j + 1) / $this->columns][($j + 1) % $this->columns];
-                    $this->matrix[($j + 1) / $this->columns][($j + 1) % $this->columns] = $swap;
+                if ($this->matrix[$j / $col][$j % $col] > $this->matrix[($j + 1) / $col][($j + 1) % $col]) {
+                    $swap = $this->matrix[$j / $col][$j % $col];
+                    $this->matrix[$j / $col][$j % $col] = $this->matrix[($j + 1) / $col][($j + 1) % $col];
+                    $this->matrix[($j + 1) / $col][($j + 1) % $col] = $swap;
                 }
             }
         }

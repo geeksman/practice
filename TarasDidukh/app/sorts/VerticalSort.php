@@ -1,7 +1,7 @@
 <?php 
 
 namespace botan\app\sorts;
-require_once('../vendor/autoload.php');
+use botan\app\sorts\BaseMatrix;
     
 class VerticalSort extends BaseMatrix 
 {
@@ -13,12 +13,14 @@ class VerticalSort extends BaseMatrix
     public function sort() 
     {
         $length = $this->rows * $this->columns;
+        $row = $this->matrix;
+        
         for ($i = 0; $i < $length - 1; ++$i) {
             for ($j = 0; $j < $length - 1; ++$j) {
-                if ($this->matrix[$j % $this->rows][$j / $this->rows] > $this->matrix[($j + 1) % $this->rows][($j + 1) / $this->rows]) {
-                    $swap = $this->matrix[$j % $this->rows][$j / $this->rows];
-                    $this->matrix[$j % $this->rows][$j / $this->rows] = $this->matrix[($j + 1) % $this->rows][($j + 1) / $this->rows];
-                    $this->matrix[($j + 1) % $this->rows][($j + 1) / $this->rows] = $swap;
+                if ($this->matrix[$j % $row][$j / $row] > $this->matrix[($j + 1) % $row][($j + 1) / $row]) {
+                    $swap = $this->matrix[$j % $row][$j / $row];
+                    $this->matrix[$j % $row][$j / $row] = $this->matrix[($j + 1) % $row][($j + 1) / $row];
+                    $this->matrix[($j + 1) % $row][($j + 1) / $row] = $swap;
                 }
             }
         }
@@ -27,12 +29,14 @@ class VerticalSort extends BaseMatrix
     public function dsort() 
     {
         $length = $this->rows * $this->columns;
+        $row = $this->matrix;
+        
         for ($i = 0; $i < $length - 1; ++$i) {
             for ($j = $length - 1; $j > 0; --$j) {
-                if ($this->matrix[$j % $this->rows][$j / $this->rows] > $this->matrix[($j - 1) % $this->rows][($j - 1) / $this->rows]) {
-                    $swap = $this->matrix[$j % $this->rows][$j / $this->rows];
-                    $this->matrix[$j % $this->rows][$j / $this->rows] = $this->matrix[($j - 1) % $this->rows][($j - 1) / $this->rows];
-                    $this->matrix[($j - 1) % $this->rows][($j - 1) / $this->rows] = $swap;
+                if ($this->matrix[$j % $row][$j / $row] > $this->matrix[($j - 1) % $row][($j - 1) / $row]) {
+                    $swap = $this->matrix[$j % $row][$j / $row];
+                    $this->matrix[$j % $row][$j / $row] = $this->matrix[($j - 1) % $row][($j - 1) / $row];
+                    $this->matrix[($j - 1) % $row][($j - 1) / $row] = $swap;
                 }
             }
         }

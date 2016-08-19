@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Practice</title>
-    <link rel="stylesheet" type="text/css" href="/practice/TarasDidukh/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/practice/TarasDidukh/app/public/styles/style.css">
 </head>
 
 <body>
@@ -45,14 +45,23 @@
 
     <?php
     
-     require __DIR__ . "/../vendor/autoload.php";
+    require __DIR__ . "/../vendor/autoload.php";
+    
+    use botan\app\components\outputs\PrintToScreen;
+    use botan\app\components\outputs\PrintToFile;
+    
+    use botan\app\components\generators\RandomGenerator;
+    use botan\app\components\generators\SimpleNumbersGenerator;
+    
+    use botan\app\sorts\HorizontalSort;
+    use botan\app\sorts\VerticalSort;
+    use botan\app\sorts\SnailSort;
+    use botan\app\sorts\DiagonalSort;
+    use botan\app\sorts\SnakeSort;
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        
         $typeSort = $_POST["typeSort"];
         $Matrix = 0;
-        $printM = new PrintMatrix();
-        
         
         switch ($typeSort) {
             case 'horizontalSort':
@@ -80,15 +89,20 @@
         
         $Matrix->setSize($_POST["rows"], $_POST["columns"]);
         
-        $generate = new GenerateMatrix();
+        $generate = 0;
         
         if ($_POST["typeGeneration"] == "random") {
-            $generate->generateRandom($Matrix);
+            $generate = new RandomGenerator();
         } else {
-            $generate->generateSimpleNumbers($Matrix);
+            $generate = new SimpleNumbersGenerator();
         }
         
-        $printM->printMatrix($Matrix);
+        $generate->generate($Matrix);
+        
+        $printf = new printToFile();
+        $prints = new printToScreen();
+        
+        $prints->output($Matrix);
         
         if ($typeSort == "dSnailSort" || $typeSort == "dVerticalSort") {
             $Matrix->dsort();
@@ -96,8 +110,8 @@
             $Matrix->sort();
         }
         
-        $printM->printMatrix($Matrix);
-        $printM->printMatrixToFile($Matrix);
+        $prints->output($Matrix);
+        $printf->output($Matrix);
     }
     
     ?>

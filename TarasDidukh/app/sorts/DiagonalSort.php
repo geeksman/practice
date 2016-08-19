@@ -1,7 +1,8 @@
 <?php
 
 namespace botan\app\sorts;
-require_once('../vendor/autoload.php');
+
+use botan\app\sorts\BaseMatrix;
 
 class DiagonalSort extends BaseMatrix 
 {
@@ -14,9 +15,11 @@ class DiagonalSort extends BaseMatrix
     {
         $length = $this->rows * $this->columns;
         $arr = array();
+
         for ($i = 0; $i < $length; $i++) {
             $arr[$i] = $this->matrix[$i / $this->columns][$i % $this->columns];
         }
+
         sort($arr);
 
         $i = 0;

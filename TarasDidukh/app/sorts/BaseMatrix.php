@@ -1,6 +1,6 @@
 <?php
 
-namespace botan\app\components;
+namespace botan\app\sorts;
 
 abstract class BaseMatrix 
 {
@@ -12,6 +12,8 @@ abstract class BaseMatrix
     {
         $this->rows = 4;
         $this->columns = 5;
+        $this->matrix = array();
+
         for ($i = 0; $i < $this->rows; $i++) {
             $this->matrix[$i] = array();
         }
@@ -24,11 +26,15 @@ abstract class BaseMatrix
         if ($rows > 10 || $columns > 10) {
             return false;
         }
+
         $this->columns = $columns;
         $this->rows = $rows;
+        $this->matrix = array();
+
         for ($i = 0; $i < $this->rows; $i++) {
             $this->matrix[$i] = array();
         }
+
         return true;
     }
     

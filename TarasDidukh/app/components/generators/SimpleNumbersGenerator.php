@@ -1,27 +1,19 @@
 <?php
 
-namespace botan\app\components;
+namespace botan\app\components\generators;
 
-class GenerateMatrix
+class SimpleNumbersGenerator
 {
-    public function generateRandom($matrix)
+    public function generate($matrix) 
     {
-        for ($i = 0; $i < $matrix->getRows(); $i++) {
-            for ($j = 0; $j < $matrix->getColumns(); $j++) {
-                $matrix->getMatrix()[$i][$j] = rand(0, 99);
-            }
-        }
-    }
-    
-    public function generateSimpleNumbers($matrix) 
-    {
+        $_matrix = $matrix->getMatrix();
+        
         for ($i = 0; $i < $matrix->getRows(); $i++) {
             for ($j = 0; $j < $matrix->getColumns(); $j++) {
                 
                 $n = 0;
                 
                 while (true) {
-                    
                     $n = rand(2, 99);
                     $end = round( sqrt($n) ) + 1;
                     $k = 2;
@@ -37,8 +29,10 @@ class GenerateMatrix
                     }
                 }
                 
-                $matrix->getMatrix()[$i][$j] = $n; 
+                $_matrix[$i][$j] = $n; 
             }
         }
+        
+        $matrix->setMatrix($_matrix);
     }
 }
