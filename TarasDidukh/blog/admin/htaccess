@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Admin Panel"
+AuthUserFile botanic2015:~/workspace/admin/.htpasswd
+Require valid-user
