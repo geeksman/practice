@@ -1,0 +1,62 @@
+@import 'https://fonts.googleapis.com/css?family=Baloo+Chettan';
+@import 'https://fonts.googleapis.com/css?family=Oswald';
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+@import 'https://fonts.googleapis.com/css?family=Droid+Serif';
+
+.img-header {
+    background-image: url('../img/header-img.jpg');
+    width: 100%;
+    height: 400px;
+    -webkit-background-size: cover;
+    background-size: cover;
+    position: relative;
+    top: -75px;
+    padding-top: 100px;
+}
+
+.nav-opacity {
+    opacity: 0.7;
+}
+
+.info {
+    font-family: 'Baloo Chettan', cirsive;
+    color: white;
+    margin: auto;
+    width: 700px;
+}
+
+hr {
+    width: 300px;
+    border: none;
+    color: white;
+    background-color: white;
+    height: 5px;
+}
+
+.description > a {
+    text-decoration: none;
+}
+.description > a > h2 {
+    font-family: 'Oswald', sans-serif;
+}
+
+.description > a > h4 {
+    font-family: 'Raleway', sans-serif;
+}
+
+.img-post {
+    background-image: url('../img/post-bg.jpg');
+    width: 100%;
+    height: 400px;
+    -webkit-background-size: cover;
+    background-size: cover;
+    position: relative;
+    top: -75px;
+    padding-top: 100px;
+}
+
+.content-style {
+    font-family: 'Droid Serif', serif;
+    width: 800px;
+    font-size: 20px;
+}
